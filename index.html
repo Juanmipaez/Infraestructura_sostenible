@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diseña tu Infraestructura Verde</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Diseña tu Infraestructura Verde</h1>
+
+  <div class="contenedor-principal">
+    <div class="panel-elementos">
+      <h2>Elementos</h2>
+      <div class="elemento" draggable="true" data-tipo="bueno" id="arbol">🌳 Árbol</div>
+      <div class="elemento" draggable="true" data-tipo="bueno" id="paso-fauna">🦌 Paso de fauna</div>
+      <div class="elemento" draggable="true" data-tipo="bueno" id="panel-solar">☀️ Panel solar</div>
+      <div class="elemento" draggable="true" data-tipo="bueno" id="canal-lluvia">🌧️ Canal de agua lluvia</div>
+
+      <div class="elemento" draggable="true" data-tipo="malo" id="fabrica">🏣 Fábrica contaminante</div>
+      <div class="elemento" draggable="true" data-tipo="malo" id="tala">🪓 Tala de árboles</div>
+      <div class="elemento" draggable="true" data-tipo="malo" id="carretera-mala">🚗 Carretera sin fauna</div>
+    </div>
+
+    <div class="zona-juego" id="zona-juego">
+      <p>Arrastra aquí los elementos para construir tu entorno</p>
+    </div>
+  </div>
+
+  <div class="zona-basura" id="zona-basura">
+    🗑️ Eliminar elemento
+  </div>
+
+  <button id="evaluar-btn">Evaluar impacto</button>
+  <div id="resultado-evaluacion"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
