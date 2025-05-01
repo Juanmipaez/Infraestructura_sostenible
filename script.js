@@ -73,7 +73,7 @@ const infrastructureData = [
         connectivityBoost: 12,
         habitatQuality: 15,
         beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fview-high-voltage-electric-pole-transmission-power-to-sub-stations-159260386.jpg&f=1&nofb=1&ipt=fc62c528228929f56eee6e53e6068dee86f89e587955b301081f651088ab1479",
-        afterImage: "https://shorturl.at/g3Ybo"
+        afterImage: "https://sdmntprwestus2.oaiusercontent.com/files/00000000-bbac-61f8-9474-d0929b0d76ac/raw?se=2025-05-01T22%3A24%3A56Z&sp=r&sv=2024-08-04&sr=b&scid=cbd0675b-4059-5940-982f-1027bcb17511&skoid=ae70be19-8043-4428-a990-27c58b478304&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-01T03%3A45%3A24Z&ske=2025-05-02T03%3A45%3A24Z&sks=b&skv=2024-08-04&sig=QN06P472hfTcZfyLw6wcQiPHXL5cLb6IWvya68Ng7z8%3D"
     },
     {
         id: 5,
@@ -153,10 +153,6 @@ transformBtn.addEventListener('click', () => {
     }
 });
 
-cancelBtn.addEventListener('click', () => {
-    hideTransformationOptions();
-});
-
 // Funciones
 function showTransformationOptions(infrastructure) {
     infrastructureTitle.textContent = infrastructure.title;
@@ -178,39 +174,55 @@ function showTransformationOptions(infrastructure) {
     transformationOptions.style.display = 'block';
 }
 
-function hideTransformationOptions() {
-    transformationOptions.style.display = 'none';
-    instructionText.style.display = 'block';
-    selectedInfrastructure = null;
-}
+// Asignar listeners una sola vez al cargar
+hotspots.forEach(hotspot => {
+    hotspot.addEventListener('click', () => {
+        const id = parseInt(hotspot.dataset.id);
+        selectedInfrastructure = infrastructureData.find(item => item.id === id);
+
+        if (hotspot.classList.contains('transformed')) {
+            // Mostrar info transformada
+            infrastructureTitle.textContent = selectedInfrastructure.sustainableTitle;
+            infoText.textContent = selectedInfrastructure.sustainableDescription;
+
+            beforeImage.src = selectedInfrastructure.beforeImage;
+            afterImage.src = selectedInfrastructure.afterImage;
+
+            impactList.innerHTML = '';
+            selectedInfrastructure.impacts.forEach(impact => {
+                const li = document.createElement('li');
+                li.textContent = impact;
+                impactList.appendChild(li);
+            });
+
+            instructionText.style.display = 'none';
+            transformationOptions.style.display = 'block';
+            transformBtn.disabled = true;
+            transformBtn.textContent = '¡Ya Transformado!';
+        } else {
+            // Mostrar opciones para transformar
+            showTransformationOptions(selectedInfrastructure);
+            transformBtn.disabled = false;
+            transformBtn.textContent = 'Transformar a Versión Sostenible';
+        }
+    });
+});
 
 function transformInfrastructure(infrastructure) {
-    // Encontrar el hotspot correspondiente
     const hotspot = document.querySelector(`.hotspot[data-id="${infrastructure.id}"]`);
     hotspot.classList.add('transformed');
-    
-    // Actualizar estadísticas
+
     updateStats(infrastructure);
-    
-    // Actualizar título y descripción
+
     infrastructureTitle.textContent = infrastructure.sustainableTitle;
     infoText.textContent = infrastructure.sustainableDescription;
-    
-    // Cambiar el botón de transformar
+
     transformBtn.textContent = '¡Transformación Completada!';
     transformBtn.disabled = true;
-    
-    // Ocultar opciones después de un tiempo
-    setTimeout(() => {
-        hideTransformationOptions();
-        transformBtn.disabled = false;
-        transformBtn.textContent = 'Transformar a Versión Sostenible';
-        
-        // Verificar si se han completado todas las transformaciones
-        if (currentStats.transformations === 5) {
-            completedMessage.style.display = 'block';
-        }
-    }, 10000);
+
+    if (currentStats.transformations === 5) {
+        completedMessage.style.display = 'block';
+    }
 }
 
 function updateStats(infrastructure) {
