@@ -72,8 +72,8 @@ const infrastructureData = [
         emissionsReduction: 0,
         connectivityBoost: 12,
         habitatQuality: 15,
-        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fview-high-voltage-electric-pole-transmission-power-to-sub-stations-159260386.jpg&f=1&nofb=1&ipt=fc62c528228929f56eee6e53e6068dee86f89e587955b301081f651088ab1479",
-        afterImage: "ProteccionAvifauna.png"
+        beforeImage: "https://globalambiente.es/wp-content/uploads/2017/10/palomas_tendido.jpg",
+        afterImage: "https://www.ecologistasenaccion.org/wp-content/uploads/2018/10/tendido-electrico-acondicionado.jpg" 
     },
     {
         id: 5,
