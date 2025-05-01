@@ -1,39 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diseña tu Infraestructura Verde</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo de Transformación Verde</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Diseña tu Infraestructura Verde</h1>
+    <header>
+        <h1>Mapa Interactivo de Transformación Verde</h1>
+        <p class="subtitle">Transforma la infraestructura tradicional en soluciones sostenibles y observa el impacto positivo en el ecosistema</p>
+    </header>
 
-  <div class="contenedor-principal">
-    <div class="panel-elementos">
-      <h2>Elementos</h2>
-      <div class="elemento" draggable="true" data-tipo="bueno" id="arbol">🌳 Árbol</div>
-      <div class="elemento" draggable="true" data-tipo="bueno" id="paso-fauna">🦌 Paso de fauna</div>
-      <div class="elemento" draggable="true" data-tipo="bueno" id="panel-solar">☀️ Panel solar</div>
-      <div class="elemento" draggable="true" data-tipo="bueno" id="canal-lluvia">🌧️ Canal de agua lluvia</div>
+    <div class="container">
+        <div class="map-container">
+            <div class="map" id="map">
+                <!-- Hotspots de infraestructura -->
+                <div class="hotspot" style="top: 60%; left: 20%;" data-id="1">1</div>
+                <div class="hotspot" style="top: 30%; left: 40%;" data-id="2">2</div>
+                <div class="hotspot" style="top: 70%; left: 60%;" data-id="3">3</div>
+                <div class="hotspot" style="top: 40%; left: 70%;" data-id="4">4</div>
+                <div class="hotspot" style="top: 20%; left: 80%;" data-id="5">5</div>
+                <div class="map-overlay"></div>
+            </div>
 
-      <div class="elemento" draggable="true" data-tipo="malo" id="fabrica">🏣 Fábrica contaminante</div>
-      <div class="elemento" draggable="true" data-tipo="malo" id="tala">🪓 Tala de árboles</div>
-      <div class="elemento" draggable="true" data-tipo="malo" id="carretera-mala">🚗 Carretera sin fauna</div>
+            <div class="stats">
+                <h2>Estadísticas del Ecosistema</h2>
+                
+                <div class="stat-item">
+                    <div class="stat-label">
+                        <span>Biodiversidad</span>
+                        <span id="biodiversity-value">20%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="biodiversity-progress" style="width: 20%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-label">
+                        <span>Reducción de Emisiones CO₂</span>
+                        <span id="emissions-value">15%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="emissions-progress" style="width: 15%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-label">
+                        <span>Conectividad Ecológica</span>
+                        <span id="connectivity-value">10%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="connectivity-progress" style="width: 10%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-label">
+                        <span>Calidad del Hábitat</span>
+                        <span id="habitat-value">25%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="habitat-progress" style="width: 25%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-label">
+                        <span>Transformación Sostenible</span>
+                        <span id="transformation-value">0/5</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="transformation-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-container">
+            <h2 class="details-title">Detalles de Infraestructura</h2>
+            <p id="instruction-text">Haz clic en un punto del mapa para ver opciones de transformación sostenible.</p>
+            
+            <div class="transformation-options" id="transformation-options">
+                <h3 id="infrastructure-title">Carretera Tradicional</h3>
+                
+                <div class="before-after">
+                    <div class="image-compare">
+                        <img src="/api/placeholder/400/200" alt="Infraestructura tradicional" id="before-image">
+                        <p>Infraestructura Actual</p>
+                    </div>
+                    <div class="image-compare">
+                        <img src="/api/placeholder/400/200" alt="Infraestructura sostenible" id="after-image">
+                        <p>Transformación Sostenible</p>
+                    </div>
+                </div>
+                
+                <div class="info-panel">
+                    <p class="info-text" id="info-text">La carretera tradicional atraviesa un hábitat natural, fragmentando ecosistemas y creando una barrera para la fauna silvestre.</p>
+                    
+                    <h4>Impacto de la transformación:</h4>
+                    <ul class="impact-list" id="impact-list">
+                        <li>Reducción de atropellamientos de fauna</li>
+                        <li>Restauración de la conectividad del ecosistema</li>
+                        <li>Disminución de la contaminación sonora y lumínica</li>
+                    </ul>
+                </div>
+                
+                <div class="option-buttons">
+                    <button class="btn btn-primary" id="transform-btn">Transformar a Versión Sostenible</button>
+                    <button class="btn btn-secondary" id="cancel-btn">Cancelar</button>
+                </div>
+            </div>
+            
+            <div class="completed-message" id="completed-message">
+                <h3>¡Felicidades! Has completado la transformación sostenible del área</h3>
+                <p>Has demostrado cómo la infraestructura verde puede mejorar significativamente la salud del ecosistema y promover la biodiversidad mientras se satisfacen las necesidades humanas.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="zona-juego" id="zona-juego">
-      <p>Arrastra aquí los elementos para construir tu entorno</p>
-    </div>
-  </div>
+    <footer>
+        Proyecto de Infraestructura Sostenible | Cátedra Universitaria | 2025
+    </footer>
 
-  <div class="zona-basura" id="zona-basura">
-    🗑️ Eliminar elemento
-  </div>
-
-  <button id="evaluar-btn">Evaluar impacto</button>
-  <div id="resultado-evaluacion"></div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
