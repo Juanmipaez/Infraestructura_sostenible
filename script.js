@@ -90,7 +90,7 @@ const infrastructureData = [
         biodiversityBoost: 12,
         emissionsReduction: 15,
         connectivityBoost: 8,
-        habitatQuality: 11,
+        habitatQuality: 8,
         beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flimitlesspavingandconcrete.com%2Fwp-content%2Fuploads%2F2019%2F07%2Fstandard-parking-spot.jpg&f=1&nofb=1&ipt=bb380b46aabd3ab2c73015d1177fdfc53c6e54ae809de8d0f21b264ba7fb6ae0",
         afterImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets-global.website-files.com%2F6202e1e4dcd0f68026e62e24%2F65cbbd842a9240ca0bd46435_shutterstock_221542885%25201%2520(3).png&f=1&nofb=1&ipt=62e845c45024a9f706276bbed0f9e1737c91e5c8eee2a937edbac6a78808f8c1"
     }
