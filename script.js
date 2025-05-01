@@ -73,7 +73,7 @@ const infrastructureData = [
         connectivityBoost: 12,
         habitatQuality: 15,
         beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fview-high-voltage-electric-pole-transmission-power-to-sub-stations-159260386.jpg&f=1&nofb=1&ipt=fc62c528228929f56eee6e53e6068dee86f89e587955b301081f651088ab1479",
-        afterImage: "https://sdmntprwestus2.oaiusercontent.com/files/00000000-bbac-61f8-9474-d0929b0d76ac/raw?se=2025-05-01T22%3A24%3A56Z&sp=r&sv=2024-08-04&sr=b&scid=cbd0675b-4059-5940-982f-1027bcb17511&skoid=ae70be19-8043-4428-a990-27c58b478304&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-01T03%3A45%3A24Z&ske=2025-05-02T03%3A45%3A24Z&sks=b&skv=2024-08-04&sig=QN06P472hfTcZfyLw6wcQiPHXL5cLb6IWvya68Ng7z8%3D"
+        afterImage: "ProteccionAvifauna.png"
     },
     {
         id: 5,
