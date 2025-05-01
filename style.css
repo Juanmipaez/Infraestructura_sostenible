@@ -58,7 +58,7 @@ h1 {
     position: relative;
     flex: 3;
     height: 500px;
-    background-image: url('/api/placeholder/800/500');
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F002%2F920%2F438%2Foriginal%2Fabstract-city-map-seamless-pattern-roads-navigation-gps-use-for-pattern-fills-surface-textures-web-page-background-wallpaper-illustration-free-vector.jpg&f=1&nofb=1&ipt=0bfd3c2e8b1fab849a302502bef6db4a5262d77e5bb63df470f45b9f4bf0a76c');
     background-size: cover;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);

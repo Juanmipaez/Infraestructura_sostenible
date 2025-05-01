@@ -14,7 +14,9 @@ const infrastructureData = [
         biodiversityBoost: 15,
         emissionsReduction: 5,
         connectivityBoost: 25,
-        habitatQuality: 12
+        habitatQuality: 12,
+        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-qa.britannica.com%2Fs%3A700x500%2F00%2F136000-050-7B0E1714%2FAutobahn-south-Nurnberg-Germany.jpg&f=1&nofb=1&ipt=53b998ebe5e37a2bfcc96701e9dc9a4acc404aab53f16f2b6ad6b0caf06e6089",
+        afterImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.allpe.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fpasos-de-fauna-infraestructuras.jpg&f=1&nofb=1&ipt=88245e8d27fbb095b97f9c2b92d18dc155111f31d7772655f122c8bc7109789c"
     },
     {
         id: 2,
@@ -31,7 +33,9 @@ const infrastructureData = [
         biodiversityBoost: 10,
         emissionsReduction: 25,
         connectivityBoost: 5,
-        habitatQuality: 15
+        habitatQuality: 15,
+        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffoto-gratis%2Fvista-aerea-arriba-cruces-ocupados-carretera-dia-paso-elevado-autopista-interseccion-carretera-circunvalacion-exterior-oriental-bangkok_73503-1392.jpg&f=1&nofb=1&ipt=2f231fb57121758e9a8c455f1ceaf61d66dbcab8748e697fb3136c153ddd578e",
+        afterImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FTp9cXTApg1o%2Fmaxresdefault.jpg&f=1&nofb=1&ipt=7da763093ed9505e5a73279a2c1582950f60cdcc37e45329c0df1cd606331684"
     },
     {
         id: 3,
@@ -48,7 +52,9 @@ const infrastructureData = [
         biodiversityBoost: 20,
         emissionsReduction: 5,
         connectivityBoost: 15,
-        habitatQuality: 25
+        habitatQuality: 25,
+        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.tecnoalimen.com%2Fmedia%2Fuploads%2Fnoticias%2Fwwacomultiline.jpg&f=1&nofb=1&ipt=95c7ce2ff6e0f3de27b0a4b6393ae950d2bf1854857b89cd6acae059491abcdd",
+        afterImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.aco.co.uk%2Fmedia%2Fv3%2F0%2Fmicrosoftteams-image-j.jpg&f=1&nofb=1&ipt=c644cacfa2ee494d348ded69ee9c256b6f694c1fe693fb35fb8a3c7633aaf338"
     },
     {
         id: 4,
@@ -65,7 +71,9 @@ const infrastructureData = [
         biodiversityBoost: 18,
         emissionsReduction: 0,
         connectivityBoost: 12,
-        habitatQuality: 15
+        habitatQuality: 15,
+        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fview-high-voltage-electric-pole-transmission-power-to-sub-stations-159260386.jpg&f=1&nofb=1&ipt=fc62c528228929f56eee6e53e6068dee86f89e587955b301081f651088ab1479",
+        afterImage: "https://shorturl.at/g3Ybo"
     },
     {
         id: 5,
@@ -82,7 +90,9 @@ const infrastructureData = [
         biodiversityBoost: 12,
         emissionsReduction: 15,
         connectivityBoost: 8,
-        habitatQuality: 13
+        habitatQuality: 13,
+        beforeImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flimitlesspavingandconcrete.com%2Fwp-content%2Fuploads%2F2019%2F07%2Fstandard-parking-spot.jpg&f=1&nofb=1&ipt=bb380b46aabd3ab2c73015d1177fdfc53c6e54ae809de8d0f21b264ba7fb6ae0",
+        afterImage: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets-global.website-files.com%2F6202e1e4dcd0f68026e62e24%2F65cbbd842a9240ca0bd46435_shutterstock_221542885%25201%2520(3).png&f=1&nofb=1&ipt=62e845c45024a9f706276bbed0f9e1737c91e5c8eee2a937edbac6a78808f8c1"
     }
 ];
 
@@ -105,6 +115,8 @@ const impactList = document.getElementById('impact-list');
 const transformBtn = document.getElementById('transform-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const completedMessage = document.getElementById('completed-message');
+const beforeImage = document.getElementById('before-image');
+const afterImage = document.getElementById('after-image');
 
 // Elementos de estadísticas
 const biodiversityValue = document.getElementById('biodiversity-value');
@@ -150,6 +162,10 @@ function showTransformationOptions(infrastructure) {
     infrastructureTitle.textContent = infrastructure.title;
     infoText.textContent = infrastructure.description;
     
+    // Actualizar imágenes antes/después
+    beforeImage.src = infrastructure.beforeImage;
+    afterImage.src = infrastructure.afterImage;
+    
     // Actualizar lista de impactos
     impactList.innerHTML = '';
     infrastructure.impacts.forEach(impact => {
@@ -194,7 +210,7 @@ function transformInfrastructure(infrastructure) {
         if (currentStats.transformations === 5) {
             completedMessage.style.display = 'block';
         }
-    }, 2000);
+    }, 10000);
 }
 
 function updateStats(infrastructure) {
